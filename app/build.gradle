@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+}
+
+def signingFile = new File(System.getProperty('user.home'), '.android/simple-question/signing.properties')
+def signingValues = new Properties()
+if (signingFile.exists()) {
+    signingFile.withInputStream { signingValues.load(it) }
+}
+
+android {
+    namespace 'com.ggn.simplequestion'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.ggn.simplequestion'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+        testInstrumentationRunner 'com.ggn.simplequestion.SmokeInstrumentation'
+    }
+
+    signingConfigs {
+        if (signingFile.exists()) {
+            release {
+                storeFile file(signingValues['storeFile'])
+                storePassword signingValues['storePassword']
+                keyAlias signingValues['keyAlias']
+                keyPassword signingValues['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (signingFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    lint {
+        abortOnError true
+        warningsAsErrors false
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
+}

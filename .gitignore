@@ -1,4 +1,14 @@
 # Byte-compiled / optimized / DLL files
+.gradle/
+.idea/
+local.properties
+*.iml
+*.jks
+*.keystore
+signing.properties
+captures/
+.android/
+
 __pycache__/
 *.py[codz]
 *$py.class

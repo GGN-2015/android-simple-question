@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "sets": [
+    {
+      "name": "英语 · 每日一词",
+      "questions": [
+        { "prompt": "苹果的英文是什么？（小写）", "answer": "apple" },
+        { "prompt": "将「保持好奇」翻译成英文。（首字母大写，无标点）", "answer": "Stay curious" },
+        { "prompt": "「简洁」对应的英文单词是什么？（小写）", "answer": "simplicity" }
+      ]
+    },
+    {
+      "name": "计算机基础",
+      "questions": [
+        { "prompt": "HTTP 默认端口号是多少？", "answer": "80" },
+        { "prompt": "二进制数 1010 对应的十进制数是多少？", "answer": "10" },
+        { "prompt": "JSON 的英文全称是什么？", "answer": "JavaScript Object Notation" }
+      ]
+    }
+  ]
+}
